@@ -1,16 +1,23 @@
-import mongoose from "mongoose"
+// import mongoose, { Schema } from "mongoose";
 
+// const meetingSchema = new Schema({
+//   user_id: { type: String },
+//   mettingCode: { type: String, required: true },
+//   date: { type: Date, default: Date.now, required: true },
+// });
 
+// const Meeting = mongoose.Model("Meeting", meetingSchema);
 
-const meetingSchema = new Schema(
-    {
-        user_id :{type  : String},
-        mettingCode : {type: String, required : true},
-        date : {type : Date , default:Date.now , required : true}
+// export { Meeting };
 
-    }
-)
+import mongoose from "mongoose";
 
-const Meeting = mongoose.Model("Meeting" ,  meetingSchema);
+const meetingSchema = new mongoose.Schema({
+  user_id: { type: String },
+  mettingCode: { type: String, required: true },
+  date: { type: Date, default: Date.now, required: true },
+});
 
-export { "meeting"}
+const Meeting = mongoose.model("Meeting", meetingSchema);
+
+export { Meeting };
